@@ -1,11 +1,9 @@
 import os
-from dotenv import load_dotenv
 import streamlit as st
 import re
 
 # Carregar variáveis de ambiente
-load_dotenv('Key-Studies.txt')
-os.environ['OPENAI_API_KEY'] = os.getenv('APIKEY_OPENAI')
+os.environ['OPENAI_API_KEY'] = st.secrets["openai"]["api_key"]
 
 from pydantic import BaseModel, Field
 from openai import OpenAI
