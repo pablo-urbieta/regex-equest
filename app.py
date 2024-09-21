@@ -3,7 +3,7 @@ import streamlit as st
 import re
 
 # Carregar variáveis de ambiente
-os.environ['OPENAI_API_KEY'] = st.secrets["openai"]["api_key"]
+os.environ['OPENAI_API_KEY'] = st.secrets["openai"]["api_key"]#teste
 
 from pydantic import BaseModel, Field
 from openai import OpenAI
