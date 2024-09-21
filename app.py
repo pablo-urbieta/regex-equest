@@ -3,7 +3,7 @@ import streamlit as st
 import re
 
 # Carregar variáveis de ambiente
-os.environ['OPENAI_API_KEY'] = st.secrets["openai"]["api_key"]
+client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
 from pydantic import BaseModel, Field
 from openai import OpenAI
