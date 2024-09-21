@@ -20,7 +20,10 @@ import xlsxwriter
 
 def extraction():
   global content_filtered
-  output_file_path = '/content/extracted_sections.txt'
+  #output_file_path = '/content/extracted_sections.txt'
+  
+  # Create an in-memory text buffer
+  output_buffer = io.StringIO()
 
   # Step 2: Find all sections labeled "REPORT- SV-A System Design Parameters"
   section_title = "REPORT- SV-A System Design Parameters"
@@ -47,16 +50,19 @@ def extraction():
       if section_title in section:
           sections.append(section)
 
-  # Step 4: Write the filtered sections to a new file
-  with open(output_file_path, 'w', encoding='ISO-8859-1') as output_file:
-      for section in sections:
-          output_file.write(section)
-          output_file.write('\n\n')  # Add a separator between sections
+    # Step 4: Write the filtered sections to the in-memory buffer
+    for section in sections:
+        output_buffer.write(section)
+        output_buffer.write('\n\n')  # Add a separator between sections
 
-  print(f"Filtered sections have been saved to {output_file_path}")
+    # Move the buffer position to the start for reading
+    output_buffer.seek(0)
 
-  with open(output_file_path, 'r', encoding='ISO-8859-1') as file:
-      content_filtered = file.read()
+    # Read the content from the buffer
+    content_filtered = output_buffer.read()
+
+    # Close the buffer (optional, since it's in memory)
+    output_buffer.close()
 
 
 
