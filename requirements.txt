@@ -1,9 +1,6 @@
-os
 streamlit
-re
-pydantic
-openai  
-pandas 
-io 
 xlsxwriter
-
+openai==1.40.0
+python-dotenv
+pydantic
+pandas
