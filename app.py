@@ -50,19 +50,19 @@ def extraction():
       if section_title in section:
           sections.append(section)
 
-    # Step 4: Write the filtered sections to the in-memory buffer
-    for section in sections:
-        output_buffer.write(section)
-        output_buffer.write('\n\n')  # Add a separator between sections
+  # Step 4: Write the filtered sections to the in-memory buffer
+  for section in sections:
+      output_buffer.write(section)
+      output_buffer.write('\n\n')  # Add a separator between sections
 
-    # Move the buffer position to the start for reading
-    output_buffer.seek(0)
+  # Move the buffer position to the start for reading
+  output_buffer.seek(0)
 
-    # Read the content from the buffer
-    content_filtered = output_buffer.read()
+  # Read the content from the buffer
+  content_filtered = output_buffer.read()
 
-    # Close the buffer (optional, since it's in memory)
-    output_buffer.close()
+  # Close the buffer (optional, since it's in memory)
+  output_buffer.close()
 
 
 
