@@ -3,13 +3,13 @@ import streamlit as st
 import re
 
 # Carregar variáveis de ambiente
-openai.api_key = st.secrets["openai"]["api_key"]  
+os.environ['OPENAI_API_KEY'] = st.secrets["openai"]["api_key"]
 
 from pydantic import BaseModel, Field
 from openai import OpenAI
 import pandas as pd
 
-#Stremlit
+#Streamlit
 import io
 from io import StringIO
 import xlsxwriter
